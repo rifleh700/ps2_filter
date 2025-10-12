@@ -2,7 +2,7 @@
 
 	<info
 		author="matran/rifleh700"
-		version="1.0.0"
+		version="1.0.1"
 		name="ps2_filter"
 		description="PS2 color filter shader"
 		type="script"
