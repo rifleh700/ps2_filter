@@ -1,8 +1,13 @@
 local SCREEN_WIDTH, SCREEN_HEIGHT = guiGetScreenSize()
 local SHADER = dxCreateShader("ps2.fx")
 
+-- set "false" for disabling by default
+local enabled = true
+
 addEventHandler("onClientHUDRender", root,
 	function()
+
+		if not enabled then return end
 
 		if getCameraGoggleEffect() ~= "normal" then
 			resetColorFilter()
@@ -25,3 +30,19 @@ addEventHandler("onClientResourceStop", resourceRoot,
 		resetColorFilter()
 	end
 )
+
+function setPS2FilterEnabled(isEnabled)
+
+	enabled = isEnabled and true or false
+
+	if not enabled then
+		resetColorFilter()
+	end
+
+	return enabled
+end
+
+function isPS2FilterEnabled()
+
+	return enabled
+end
